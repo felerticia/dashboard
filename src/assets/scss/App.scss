@@ -1,0 +1,73 @@
+@import 'base/variables';
+@import 'base/colors';
+
+@import 'components/AppHeader';
+@import 'components/Sidebar';
+
+
+html,body{
+    background-color: map-get($base-skin, page-background);
+    margin: 0 20px 0 0;
+}
+
+.App {
+    position: absolute;
+    left: 0*$grid-size;
+    top: 8*$grid-size;
+    transform: translateX(8*$grid-size);
+    width: calc(100vw - #{8*$grid-size});
+
+    button{
+        margin-right: $margin;
+    }
+
+    > div {
+        position: absolute;
+        top: 0;
+        transform:  scale(1);
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 $padding;
+        margin-top: $margin;
+        border-radius: 5px;
+        box-shadow: 0px $margin/2 $margin $margin rgba(0, 0, 0, 0.01);
+        transition: all $transition-speed ease;
+    }
+
+    @media screen and (max-width: $breakpoint) {
+        min-width: initial;
+        width: 100%;
+        > div {
+        margin-top: 0;
+        border-radius: 0;
+        }
+    }
+
+    // Page transitions
+    > div.fade-enter {
+        transition: transform $transition-speed, opacity $transition-speed;
+        transition-timing-function: ease-out;
+        opacity: 0.1;
+        transition-delay: 200;
+        transform: translateX(-50%) scale(.6);
+    }
+    > div.fade-enter.fade-enter-active {
+        transition-delay: 200;
+
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        z-index: 1;
+    }
+    > div.fade-exit {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    > div.fade-exit.fade-exit-active {
+        transition: transform $transition-speed, opacity $transition-speed ;
+        transition-timing-function: ease-in;
+
+        opacity: 0;
+        transform: translateX(-50%) scale(.2);
+        z-index: 0;
+    }
+}

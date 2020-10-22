@@ -1,0 +1,7 @@
+export const TOGGLE_TRANSITIONS = 'TOGGLE_TRANSITIONS';
+
+
+
+export default {
+    TOGGLE_TRANSITIONS
+}

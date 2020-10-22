@@ -1,0 +1,15 @@
+@import 'base/variables';
+@import 'base/colors';
+
+
+.app-header {
+    height: $app-header-width;
+    background-color: map-get($base-skin, gray-brightest);
+    border-bottom: 1px solid map-get($base-skin, border-color);
+
+    position: fixed;
+    left: $app-header-width;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}

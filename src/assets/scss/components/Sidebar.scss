@@ -1,0 +1,12 @@
+@import 'base/variables';
+@import 'base/colors';
+
+
+.sidebar {
+    width: $sidebar-width;
+    background-color: map-get($base-skin, gray-dark);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}

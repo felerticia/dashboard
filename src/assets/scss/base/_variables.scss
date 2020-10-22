@@ -1,0 +1,18 @@
+// Globals
+$grid-size          : 10px;
+
+$margin             : $grid-size;
+$padding            : $grid-size;
+$size               : $grid-size;
+
+// Transitions
+$transition-speed   : 350ms;
+
+// Breakpoints
+$breakpoint         : 768px;
+
+//Sidebar
+$sidebar-width      : 8*$grid-size;
+
+//App Header
+$app-header-width   : 8*$grid-size;
