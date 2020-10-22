@@ -10,6 +10,7 @@ import Page from './Page'
 
 import '../assets/scss/App.scss'
 
+
 class App extends Component {
     render() {
         return (

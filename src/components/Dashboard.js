@@ -5,12 +5,29 @@ import {loadData} from '../store/actions/loaddata'
 import {toggleTransitions} from '../store/actions/transition'
 import {Link} from 'react-router-dom'
 
+
+import Withloading from '../hoc/withLoading';
+import Test from './Test';
+
+const WithloadingTest = Withloading (Test);
+
 class Dashboard extends Component {
+
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({loading : true})
+        }, 2000);
+    }
+
     render() {
 
         return (
         <div className='dashboard'>
             <p>Redux state + component props:</p>
+
+            <WithloadingTest loading={this.state?.loading}/>
+
+
             <pre>{JSON.stringify(this.props, null, 2)}</pre>
             <Link to='/page' >GO</Link>
 
