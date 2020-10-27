@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState,useEffect } from 'react'
 import { connect } from 'react-redux'
 import {incrementCounter} from '../store/actions/counter'
 import {loadData} from '../store/actions/loaddata'
@@ -11,40 +11,41 @@ import Test from './Test';
 
 const WithloadingTest = Withloading (Test);
 
-class Dashboard extends Component {
 
-    componentDidMount(){
+const Dashboard = (props) => {
+
+    const [loading,setLoading] = useState(false)
+
+    useEffect (()=>{
         setTimeout(() => {
-            this.setState({loading : true})
-        }, 2000);
-    }
+            setLoading(true)
+        }, 3000);
+    },[])
 
-    render() {
 
-        return (
+    return (
         <div className='dashboard'>
             <p>Redux state + component props:</p>
 
-            <WithloadingTest loading={this.state?.loading}/>
+            <WithloadingTest loading={loading}/>
 
 
-            <pre>{JSON.stringify(this.props, null, 2)}</pre>
+            <pre>{JSON.stringify(props, null, 2)}</pre>
             <Link to='/page' >GO</Link>
 
             <p>Actions:</p>
-            <pre>{JSON.stringify(this.props, null, 2)}</pre>
-            <button onClick={() => this.props.dispatch(incrementCounter())}>
+            <pre>{JSON.stringify(props, null, 2)}</pre>
+            <button onClick={() => props.dispatch(incrementCounter())}>
                 increment Counter
             </button>
-            <button onClick={() => this.props.dispatch(toggleTransitions())}>
+            <button onClick={() => props.dispatch(toggleTransitions())}>
                 toggle Transitions
             </button>
-            <button onClick={() => this.props.dispatch(loadData())}>
+            <button onClick={() => props.dispatch(loadData())}>
                 load Data
-            </button> <pre>{JSON.stringify(this.props, null, 2)}</pre>
+            </button> <pre>{JSON.stringify(props, null, 2)}</pre>
         </div>
         )
-    }
 }
 
 const mapStateToProps = state => state

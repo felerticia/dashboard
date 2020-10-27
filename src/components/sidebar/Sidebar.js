@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-class Sidebar extends Component {
-    render() {
-
-        return (
-        <div className='sidebar'>
-            Sidebar
-        </div>
-        )
-    }
+const Sidebar = () => {
+    return (
+    <div className='sidebar'>
+        Sidebar
+    </div>
+    )
 }
 
 const mapStateToProps = state => state

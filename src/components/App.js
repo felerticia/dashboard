@@ -11,9 +11,8 @@ import Page from './Page'
 import '../assets/scss/App.scss'
 
 
-class App extends Component {
-    render() {
-        return (
+const App = (props) => {
+    return (
         <main>
             <AppHeader />
             <Sidebar />
@@ -23,8 +22,8 @@ class App extends Component {
                     <TransitionGroup className='App'>
                         <CSSTransition
                             key={location.key}
-                            classNames={this.props.transitions ? 'fade' : ''}
-                            timeout={this.props.transitions ? 250 : 0}
+                            classNames={props.transitions ? 'fade' : ''}
+                            timeout={props.transitions ? 250 : 0}
                             >
                             <Switch location={location}>
                                 <Route exact path="/" component={Dashboard} />
@@ -36,8 +35,7 @@ class App extends Component {
             )}
             />
         </main>
-        )
-    }
+    )
 }
 
 const mapStateToProps = state => ({

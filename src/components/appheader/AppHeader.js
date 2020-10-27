@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
-class AppHeader extends Component {
-    render() {
-
-        return (
-        <div className='app-header'>
-            AppHeader
-        </div>
-        )
-    }
+const AppHeader= () => {
+    return (
+    <div className='app-header'>
+        AppHeader
+    </div>
+    )
 }
 
 const mapStateToProps = state => state

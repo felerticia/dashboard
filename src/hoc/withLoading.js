@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default function Hoc(WrappedComponent){
-    class WithLoading extends Component{
-        render(){
-        return  this.props.loading ?
-            <WrappedComponent {...this.props} />
+const WithLoadingWrapper = (WrappedComponent) => {
+
+    const WithLoading = (props) => {
+        return  props.loading ?
+            <WrappedComponent {...props} />
             : 'Loading'
-        }
     } 
 
     WithLoading.displayName = `ComponentLoading(${WrappedComponent.displayName || WrappedComponent.name || ''})`;
     return WithLoading
 }
+
+export default WithLoadingWrapper
